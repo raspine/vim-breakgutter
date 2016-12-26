@@ -7,7 +7,7 @@ if exists("g:loaded_breakpoints")
 endif
 let g:loaded_breakpoints = 1
 
-sign define break-point text=B texthl=special
+sign define breakpoint text=B texthl=special
 let s:breakpoint_id = 8236
 
 " public interface
@@ -15,18 +15,19 @@ command -nargs=0 BreakpointSet call s:SetBreakpoint()
 command -nargs=0 BreakpointClear call s:ClearBreakpoint()
 command -nargs=0 BreakpointsClearAll call s:ClearAllBreakpoints()
 
-function! s:GetGdbBreakpointArgs()
-    let args = ""
-    let l:breakpoints = FindBreakpoints()
+function! GetGdbBreakpointArgs()
+    let l:args = ""
+    let l:breakpoints = <SID>FindBreakpoints()
     for breakpoint in l:breakpoints
-        args += " -ex='b " . breakpoint . "'"
+        let l:args .= " -ex='b " . breakpoint . "'"
     endfor
+    return l:args
 endfunction
 
 
 " local methods
 function! s:SetBreakpoint()
-    execute "sign place " . breakpoint_id . " line=" . line(".") . " name=breakpoint file=" . expand("%:p")
+    execute "sign place " . s:breakpoint_id . " line=" . line(".") . " name=breakpoint file=" . expand("%:p")
 endfunction
 
 function! s:ClearBreakpoint()
@@ -34,7 +35,7 @@ function! s:ClearBreakpoint()
 endfunction
 
 function! s:ClearAllBreakpoints()
-    execute "sign unplace ". breakpoint_id
+    execute "sign unplace ". s:breakpoint_id
 endfunction
 
 function! s:FindBreakpoints()
