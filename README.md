@@ -42,6 +42,6 @@ gdb with the executable target loaded as well:
 " start a gdb session in a separate terminal with target loaded as well
 nnoremap <leader>g :exec "!urxvt -e gdb " . GetGdbBreakpointArgs(). " " . FindCMakeTarget()<cr>
 
-" same but allows for adding arguments and then hit return
-nnoremap <leader>g :exec "!urxvt -e gdb " . GetGdbBreakpointArgs(). " --args " . FindCMakeTarget()<space>
+" same but allows for adding program arguments and then hit return
+nnoremap <leader>g :exec "!urxvt -e gdb " . GetGdbBreakpointArgs(). " --args " . FindCMakeTarget() . " "
 ```
