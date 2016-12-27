@@ -45,3 +45,6 @@ nnoremap <leader>g :exec "!urxvt -e gdb " . GetGdbBreakpointArgs(). " " . FindCM
 " same but allows for adding program arguments and then hit return
 nnoremap <leader>g :exec "!urxvt -e gdb " . GetGdbBreakpointArgs(). " --args " . FindCMakeTarget() . " "
 ```
+## License
+
+Distributed under the same terms as Vim itself.  See the vim license.
