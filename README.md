@@ -3,7 +3,7 @@ vim-breakgutter
 ### Creates breakpoints for debuggers ###
 
 I prefer to do debug sessions in a separate gdb instance and wanted
-a convenient way to launch gdb with my breakpoints already defined.
+a convenient way to launch gdb with my breakpoints initially defined.
 
 vim-breakgutter simply adds break-signs to the gutter and then provide
 the method `GetGdbBreakpointArgs()` when spawning gdb from Vim.
