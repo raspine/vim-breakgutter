@@ -9,7 +9,7 @@ vim-breakgutter simply adds break-signs to the gutter and provides the
 method "GetGdbBreakpointArgs()" when spawning gdb from Vim.
 
 GetGdbBreakpointArgs() returns a gdb argument string in the format:
-"-ex file1.c:10 -ex file2.c:20" read by gdb upon start.
+`-ex file1.c:10 -ex file2.c:20` read by gdb upon start.
 
 
 ## Commands
