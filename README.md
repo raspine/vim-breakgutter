@@ -5,10 +5,10 @@ vim-breakgutter
 I prefer to do debug sessions in a separate gdb instance and wanted
 a convenient way to launch gdb with my breakpoints already defined.
 
-vim-breakgutter simply adds break-signs to the gutter and provides the
-method "GetGdbBreakpointArgs()" when spawning gdb from Vim.
+vim-breakgutter simply adds break-signs to the gutter and then provide
+the method `GetGdbBreakpointArgs()` when spawning gdb from Vim.
 
-GetGdbBreakpointArgs() returns a gdb argument string in the format:
+`GetGdbBreakpointArgs()` returns a gdb argument string in the format:
 `-ex file1.c:10 -ex file2.c:20` read by gdb upon start.
 
 
@@ -29,9 +29,17 @@ nnoremap <leader>b<space> :BreakpointClearAll<cr>
 
 ```
 " start a gdb session in a separate terminal
-nnoremap <leader>g :exec "!urxvt -e gdb" . GetGdbBreakpointArgs()<cr>
+nnoremap <leader>g :exec "!urxvt -e gdb " . GetGdbBreakpointArgs()<cr>
 
 " spawn a gdb session in a separate terminal using Tim Pope's vim-dispatch plugin
-nnoremap <leader>g :exec "Spawn urxvt -e gdb" . GetGdbBreakpointArgs()<cr>
+nnoremap <leader>g :exec "Spawn urxvt -e gdb " . GetGdbBreakpointArgs()<cr>
+
+```
+
+When combined with [vim-target](http://github.com/raspine/vim-target) I can launch
+gdb with the executable target loaded as well:
+```
+" start a gdb session in a separate terminal
+nnoremap <leader>g :exec "!urxvt -e gdb " . FindCMakeTarget() . GetGdbBreakpointArgs()<cr>
 
 ```
