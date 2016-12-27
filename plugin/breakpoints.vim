@@ -13,13 +13,13 @@ let s:breakpoint_id = 8236
 " public interface
 command -nargs=0 BreakpointSet call s:SetBreakpoint()
 command -nargs=0 BreakpointClear call s:ClearBreakpoint()
-command -nargs=0 BreakpointsClearAll call s:ClearAllBreakpoints()
+command -nargs=0 BreakpointClearAll call s:ClearAllBreakpoints()
 
 function! GetGdbBreakpointArgs()
     let l:args = ""
     let l:breakpoints = <SID>FindBreakpoints()
     for breakpoint in l:breakpoints
-        let l:args .= " -ex='b " . breakpoint . "'"
+        let l:args .= " \-ex=\"b " . breakpoint . "\""
     endfor
     return l:args
 endfunction
@@ -27,15 +27,15 @@ endfunction
 
 " local methods
 function! s:SetBreakpoint()
-    execute "sign place " . s:breakpoint_id . " line=" . line(".") . " name=breakpoint file=" . expand("%:p")
+    execute "silent! sign place " . s:breakpoint_id . " line=" . line(".") . " name=breakpoint file=" . expand("%:p")
 endfunction
 
 function! s:ClearBreakpoint()
-    execute "sign unplace"
+    execute "silent! sign unplace"
 endfunction
 
 function! s:ClearAllBreakpoints()
-    execute "sign unplace ". s:breakpoint_id
+    execute "silent! sign unplace ". s:breakpoint_id
 endfunction
 
 function! s:FindBreakpoints()
