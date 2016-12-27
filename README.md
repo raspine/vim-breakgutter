@@ -39,7 +39,7 @@ nnoremap <leader>g :exec "Spawn urxvt -e gdb " . GetGdbBreakpointArgs()<cr>
 When combined with [vim-target](http://github.com/raspine/vim-target) I can launch
 gdb with the executable target loaded as well:
 ```
-" start a gdb session in a separate terminal
+" start a gdb session in a separate terminal with target loaded as well
 nnoremap <leader>g :exec "!urxvt -e gdb " . FindCMakeTarget() . GetGdbBreakpointArgs()<cr>
 
 ```
