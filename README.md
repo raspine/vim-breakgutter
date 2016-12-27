@@ -22,7 +22,7 @@ nnoremap <leader>bb :BreakpointSet<cr>
 nnoremap <leader>bc :BreakpointClear<cr>
 
 " clear all breakpoints
-nnoremap <leader>b<space> :BreakpointsClearAll<cr>
+nnoremap <leader>b<space> :BreakpointClearAll<cr>
 ```
 
 ## Typical usage
