@@ -8,7 +8,7 @@ a convenient way to launch gdb with my breakpoints already defined.
 vim-breakgutter simply adds break-signs to the gutter and provides the
 method "GetGdbBreakpointArgs()" when spawning gdb from Vim.
 
-GetGdbBreakpointArgs() simply returns a gdb argument string in the format:
+GetGdbBreakpointArgs() returns a gdb argument string in the format:
 "-ex file1.c:10 -ex file2.c:20" read by gdb upon start.
 
 
