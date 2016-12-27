@@ -1,11 +1,11 @@
-" breakpoints.vim - Creates breakpoints for debuggers
+" breakgutter.vim - Creates breakpoints for debuggers
 " Author:       Jörgen Scott (jorgen.scott@gmail.com)
 " Version:      0.1
 
-if exists("g:loaded_breakpoints")
+if exists("g:loaded_breakgutter")
     finish
 endif
-let g:loaded_breakpoints = 1
+let g:loaded_breakgutter = 1
 
 sign define breakpoint text=B texthl=special
 let s:breakpoint_id = 8236
