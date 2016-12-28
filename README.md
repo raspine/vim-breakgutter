@@ -40,10 +40,10 @@ When combined with [vim-target](http://github.com/raspine/vim-target) I can laun
 gdb with the executable target loaded as well:
 ```
 " start a gdb session in a separate terminal with target loaded as well
-nnoremap <leader>g :exec "!urxvt -e gdb " . GetGdbBreakpointArgs(). " " . FindCMakeTarget()<cr>
+nnoremap <leader>g :exec "!urxvt -e gdb " . GetGdbBreakpointArgs(). " " . FindExeTarget()<cr>
 
 " same but allows for adding program arguments and then hit return
-nnoremap <leader>g :exec "!urxvt -e gdb " . GetGdbBreakpointArgs(). " --args " . FindCMakeTarget() . " "
+nnoremap <leader>g :exec "!urxvt -e gdb " . GetGdbBreakpointArgs(). " --args " . FindExeTarget() . " "
 ```
 ## License
 
