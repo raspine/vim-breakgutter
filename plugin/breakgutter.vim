@@ -24,21 +24,7 @@ function! GetGdbBreakpointArgs()
     return l:args
 endfunction
 
-
-" local methods
-function! s:SetBreakpoint()
-    execute "silent! sign place " . s:breakpoint_id . " line=" . line(".") . " name=breakpoint file=" . expand("%:p")
-endfunction
-
-function! s:ClearBreakpoint()
-    execute "silent! sign unplace"
-endfunction
-
-function! s:ClearAllBreakpoints()
-    execute "silent! sign unplace ". s:breakpoint_id
-endfunction
-
-function! s:FindBreakpoints()
+function! FindBreakpoints()
     let l:breakpoints = []  " <filename:linenumber>
 
     redir => signs
@@ -60,6 +46,20 @@ function! s:FindBreakpoints()
     endfor
 
     return breakpoints
+endfunction
+
+
+" local methods
+function! s:SetBreakpoint()
+    execute "silent! sign place " . s:breakpoint_id . " line=" . line(".") . " name=breakpoint file=" . expand("%:p")
+endfunction
+
+function! s:ClearBreakpoint()
+    execute "silent! sign unplace"
+endfunction
+
+function! s:ClearAllBreakpoints()
+    execute "silent! sign unplace ". s:breakpoint_id
 endfunction
 
 
