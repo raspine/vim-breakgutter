@@ -17,7 +17,7 @@ command -nargs=0 BreakpointClearAll call s:ClearAllBreakpoints()
 
 function! GetGdbBreakpointArgs()
     let l:args = ""
-    let l:breakpoints = <SID>FindBreakpoints()
+    let l:breakpoints = FindBreakpoints()
     for breakpoint in l:breakpoints
         let l:args .= " \-ex=\"b " . breakpoint . "\""
     endfor
