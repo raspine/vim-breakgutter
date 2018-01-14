@@ -14,7 +14,7 @@ the method `GetGdbBreakpointArgs()` when spawning gdb from Vim.
 
 ## Commands
 Example of leader key mappings:
-```
+```VimL
 " set a breakpoint on the cursor line
 nnoremap <leader>bb :BreakpointSet<cr>
 
@@ -27,18 +27,19 @@ nnoremap <leader>b<space> :BreakpointClearAll<cr>
 
 ## Typical usage
 
-```
+```VimL
 " start a gdb session in a separate terminal
 nnoremap <leader>g :exec "!urxvt -e gdb " . GetGdbBreakpointArgs()<cr>
 
-" spawn a gdb session in a separate terminal using Tim Pope's vim-dispatch plugin
-nnoremap <leader>g :exec "Spawn urxvt -e gdb " . GetGdbBreakpointArgs()<cr>
+" Spawn a gdb session in a separate terminal. The ending  '&' unlocks
+" Vim while debugging.
+nnoremap <leader>g :exec "!urxvt -e gdb " . GetGdbBreakpointArgs() . '&'<cr>
 
 ```
 
 When combined with [vim-target](http://github.com/raspine/vim-target) I can launch
 gdb with the executable target loaded as well:
-```
+```VimL
 " start a gdb session in a separate terminal with target loaded as well
 nnoremap <leader>g :exec "!urxvt -e gdb " . GetGdbBreakpointArgs(). " " . FindExeTarget()<cr>
 
